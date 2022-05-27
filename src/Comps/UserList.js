@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React,{useState, useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import "../App.css"
 
 const UserList = () => {
@@ -23,11 +24,17 @@ const UserList = () => {
   return (
     <div className="task-box">
         <ul >{users.map(user=> 
-            <div className="todo-row" key={user.id}>
+            
+              <div className="todo-row" key={user.id}>
                 <h3>{user.name}</h3>
                 <p>{user.email}</p>
-                <div className="icon-box"><img className="avatar" src={user.id%2===0? avatarMale:avatarFemale}/></div>
-            </div>
+                <div className="icon-box">
+                <Link to={`/UserList/User/${user.id}`} >
+                  <img className="avatar" src={user.id%2===0? avatarMale:avatarFemale} alt={`${user.name} avatar`}/>
+                </Link>
+                </div>
+              </div>
+            
         
         )}
         </ul>

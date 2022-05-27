@@ -20,11 +20,15 @@ body{
   .toggle-btn{
     width: 300px;
   }
+  body{
+    width: 100%;
+    background: #203281;
+  }
 }
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   width:520px;
   min-height: 600px;
   background: #303448;
