@@ -2,6 +2,8 @@ import axios from 'axios';
 import React,{useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import "../App.css"
+import {BsFillArrowRightCircleFill} from "react-icons/bs";
+
 
 const UserList = () => {
     const avatarMale = "https://www.bootdey.com/img/Content/avatar/avatar7.png";
@@ -23,14 +25,17 @@ const UserList = () => {
     }, [])
   return (
     <div className="task-box">
+              <div><Link to="/"><button style={{color:"black",fontWeight:800}}>Go back</button></Link></div>
         <ul >{users.map(user=> 
-            
+
               <div className="todo-row" key={user.id}>
                 <h3>{user.name}</h3>
                 <p>{user.email}</p>
                 <div className="icon-box">
+                <img className="avatar" src={user.id%2===0? avatarMale:avatarFemale} alt={`${user.name} avatar`}/>
+                
                 <Link to={`/UserList/User/${user.id}`} >
-                  <img className="avatar" src={user.id%2===0? avatarMale:avatarFemale} alt={`${user.name} avatar`}/>
+                  <BsFillArrowRightCircleFill></BsFillArrowRightCircleFill>
                 </Link>
                 </div>
               </div>
